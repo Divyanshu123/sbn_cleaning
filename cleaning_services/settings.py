@@ -53,6 +53,7 @@ MIDDLEWARE = [
     
 ]
 
+
 ROOT_URLCONF = 'cleaning_services.urls'
 
 TEMPLATES = [
