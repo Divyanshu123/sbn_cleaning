@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/clean/service_card.css' %}">
+{% endblock %}
+
+{% block body %}
+  {% for service in services %}
+    <div class="card">
+      
+      <h1>{{service.name}}</h1>
+      <p class="price">Point: {{service.point}}</p>
+      <p> Deadline: {{service.deadline}} </p>
+      <p>{{service.description}}</p>
+      <p>
+        {% if service.done %}
+        <a disabled="disabled" >Done</a>
+        {% else %}
+        <a href="{% url 'clean:dev_service_mark_as_done' user_pk=user.pk service_pk=service.pk %}">Mark As Done</a>
+        {% endif %}
+      </p>
+    </div>
+  {% endfor %}
+{% endblock %}

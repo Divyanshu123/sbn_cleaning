@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="center height30">
+        <div class="btn btn-warning btn-lg">
+            <a href="{% url 'clean:login' %}">Sign In</a>
+        </div>
+        <div class="btn btn-warning btn-lg">
+            <a href="{% url 'clean:register' %}">Sign Up</a>
+        </div>
+    </div>
+
+     
+    
+{% endblock %}

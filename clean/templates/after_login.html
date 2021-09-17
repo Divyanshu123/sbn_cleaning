@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    
+    <div class="center height70">
+        <h1 class="text-light">Hare Krishna {{user.username}}!!</h1>
+        <div class="btn btn-warning btn-lg">
+            <a class="text-dark" href="{% url 'clean:all_avail_services' user_pk=user.pk %}">Add Services</a>
+        </div>
+        <div class="btn btn-warning btn-lg">
+            <a class="text-dark" href="{% url 'clean:dev_services' user_pk=user.pk %}">Your Services</a>
+        </div>
+        <div class="btn btn-warning btn-lg">
+            <a class="text-dark" href="{% url 'clean:dev_points' user_pk=user.pk %}">Your Points</a>
+        </div>
+        <div class="btn btn-warning btn-lg">
+            <a class="text-dark" href="{% url 'clean:logout' %}">Logout</a>
+        </div>
+        
+    </div>
+
+
+     
+    
+{% endblock %}
