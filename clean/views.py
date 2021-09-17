@@ -10,12 +10,12 @@ from .models import Service,Devotee
 # Create your views here.
 
 def index(request):
-    return render(request, "index.html")
+    return render(request, "clean/index.html")
 
 
 def after_login(request,pk):
     user = get_object_or_404(User,pk=pk)
-    return render(request, 'after_login.html', {'user':user})
+    return render(request, 'clean/after_login.html', {'user':user})
 
 
 def dev_login(request):
@@ -38,12 +38,12 @@ def dev_login(request):
             return HttpResponse('invalid User Credentials!')
 
     form = DevLoginForm()
-    return render(request,'login_page.html',{'form':form})
+    return render(request,'clean/login_page.html',{'form':form})
 
 def all_avail_services(request,user_pk):
     user = get_object_or_404(User,pk=user_pk)
     services = Service.objects.filter(taken=False)
-    return render(request,'all_avail_services.html', {'user':user,'services':services})
+    return render(request,'clean/all_avail_services.html', {'user':user,'services':services})
 
 def dev_add_service(request,user_pk, service_pk):
     user = get_object_or_404(User,pk=user_pk)
@@ -57,7 +57,7 @@ def dev_add_service(request,user_pk, service_pk):
 def dev_services(request,user_pk):
     user = get_object_or_404(User,pk=user_pk)
     services = user.devotee.services.all()
-    return render(request,'dev_services.html',{'user':user, 'services':services}) 
+    return render(request,'clean/dev_services.html',{'user':user, 'services':services}) 
 
 def dev_service_mark_as_done(request,user_pk,service_pk):
     user = get_object_or_404(User,pk=user_pk)
@@ -76,7 +76,7 @@ def dev_service_mark_as_done(request,user_pk,service_pk):
 
 def dev_points(request,user_pk):
     user = get_object_or_404(User,pk=user_pk)
-    return render(request,'dev_points.html', {'dev':user.devotee})
+    return render(request,'clean/dev_points.html', {'dev':user.devotee})
 
 def dev_register(request):
     if request.method == 'POST':
@@ -97,7 +97,7 @@ def dev_register(request):
     
     form1 = DevoteeRegForm1()
     form2 = DevoteeRegForm2()
-    return render(request,'register_page.html',{'form1':form1,'form2':form2})
+    return render(request,'clean/register_page.html',{'form1':form1,'form2':form2})
 
 
 @login_required
