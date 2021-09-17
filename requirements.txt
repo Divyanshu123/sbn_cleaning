@@ -32,4 +32,3 @@ tornado==6.1
 virtualenv==20.0.18
 whitenoise==2.0.6
 wincertstore==0.2
-whitenoise
