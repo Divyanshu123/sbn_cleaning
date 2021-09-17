@@ -42,7 +42,7 @@ def dev_login(request):
 
 def all_avail_services(request,user_pk):
     user = get_object_or_404(User,pk=user_pk)
-    services = Service.objects.filter(taken=False)
+    services = Service.objects.filter(taken=False).order_by('deadline')
     return render(request,'clean/all_avail_services.html', {'user':user,'services':services})
 
 def dev_add_service(request,user_pk, service_pk):
@@ -56,7 +56,7 @@ def dev_add_service(request,user_pk, service_pk):
 
 def dev_services(request,user_pk):
     user = get_object_or_404(User,pk=user_pk)
-    services = user.devotee.services.all()
+    services = user.devotee.services.all().order_by('deadline')
     return render(request,'clean/dev_services.html',{'user':user, 'services':services}) 
 
 def dev_service_mark_as_done(request,user_pk,service_pk):
