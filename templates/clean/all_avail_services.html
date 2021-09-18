@@ -11,7 +11,7 @@
         
         <h1>{{service.name}}</h1>
         <p class="price">Point: {{service.point}}</p>
-        <p> Deadline: {{service.deadline}} </p>
+        <!-- <p> Deadline: {{service.deadline}} </p> -->
         <p>{{service.description}}</p>
         <p><a href="{% url 'clean:dev_add_service' user_pk=user.pk service_pk=service.pk %}">Add</a></p>
       </div>
