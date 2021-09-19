@@ -3,7 +3,7 @@
 {% block body %}
     
     <div class="center height70">
-        <h1 class="text-dark">Hare Krishna {{user.username}}!!</h1>
+        <h1 class="text-light">Hare Krishna {{user.username}}!!</h1>
         <div class="btn btn-warning btn-lg">
             <a class="text-dark" href="{% url 'clean:all_avail_services' user_pk=user.pk %}">Add Services</a>
         </div>
